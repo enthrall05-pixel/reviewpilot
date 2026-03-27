@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReviewPilot — AI Reply Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="logo-icon">✈</span>
+      <span class="logo-text">ReviewPilot</span>
+    </div>
+    <div id="status-badge" class="badge badge-free hidden">Free — <span id="count-left">10</span> left</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Reply to reviews<br /><span class="accent">in seconds.</span></h1>
+    <p class="sub">Paste any customer review. Get 3 professional replies — ready to copy.</p>
+  </section>
+
+  <!-- Form -->
+  <section class="form-card">
+    <div class="field-row">
+      <div class="field">
+        <label>Business Name <span class="optional">(optional)</span></label>
+        <input id="business" type="text" placeholder="e.g. Joe's Barbershop" />
+      </div>
+      <div class="field field-sm">
+        <label>Platform</label>
+        <select id="platform">
+          <option value="Google">Google</option>
+          <option value="Yelp">Yelp</option>
+          <option value="TripAdvisor">TripAdvisor</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Trustpilot">Trustpilot</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="field field-sm">
+        <label>Rating</label>
+        <select id="rating">
+          <option value="0">Any</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="1">⭐</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Review Text</label>
+      <textarea id="review" rows="5" placeholder="Paste the customer review here..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Tone</label>
+      <div class="tone-group">
+        <button class="tone-btn active" data-tone="professional">Professional</button>
+        <button class="tone-btn" data-tone="friendly">Friendly</button>
+        <button class="tone-btn" data-tone="apologetic">Apologetic</button>
+      </div>
+    </div>
+
+    <button id="generate-btn" onclick="generate()">
+      <span id="btn-text">Generate Replies</span>
+      <span id="btn-spinner" class="spinner hidden"></span>
+    </button>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="results hidden">
+    <h2>Choose your reply</h2>
+    <div id="replies-container"></div>
+    <p id="near-limit-msg" class="near-limit hidden"></p>
+  </section>
+
+  <!-- Upgrade wall -->
+  <div id="upgrade-wall" class="upgrade-wall hidden">
+    <div class="upgrade-card">
+      <div class="upgrade-icon">🚀</div>
+      <h2>You've used your free replies</h2>
+      <p>Upgrade to ReviewPilot Pro for unlimited AI replies — $19/month.</p>
+      <ul class="upgrade-features">
+        <li>✓ Unlimited review replies</li>
+        <li>✓ All tones &amp; platforms</li>
+        <li>✓ Reply history</li>
+        <li>✓ Cancel anytime</li>
+      </ul>
+      <button class="upgrade-btn" onclick="upgrade()">Unlock Pro — $19/mo</button>
+      <p class="upgrade-sub">Secure checkout via Stripe</p>
+    </div>
+  </div>
+
+  <!-- Success banner -->
+  <div id="upgrade-success" class="upgrade-success hidden">
+    🎉 You're now on <strong>ReviewPilot Pro</strong>! Unlimited replies unlocked.
+  </div>
+
+  <!-- History -->
+  <section id="history-section" class="history-section hidden">
+    <h2>Recent Replies</h2>
+    <div id="history-list"></div>
+  </section>
+
+  <footer>
+    <p>ReviewPilot &copy; 2026 &mdash; Built by G/C</p>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
