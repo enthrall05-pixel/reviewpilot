@@ -22,7 +22,7 @@ STRIPE_KEY      = os.environ.get("STRIPE_SECRET_KEY", "")
 STRIPE_WEBHOOK  = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 STRIPE_PRICE_ID = os.environ.get("STRIPE_PRICE_ID", "price_1TFQG1EsXD6vSEDHd0c7jTxS")
 SUPABASE_URL    = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY    = os.environ.get("SUPABASE_SERVICE_KEY", "")
+SUPABASE_KEY    = os.environ.get("SUPABASE_KEY", "")
 DOMAIN          = os.environ.get("DOMAIN", "http://localhost:8080")
 
 FREE_LIMIT = 10
